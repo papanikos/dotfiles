@@ -1,0 +1,69 @@
+" Enable syntax highlighting
+set syntax=on
+
+" For snakefiles and modules
+au BufNewFile,BufRead *Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.smk set syntax=snakemake
+
+" Default python srcipt skeleton
+autocmd BufNewFile *.py 0r ~/.vim/skeletons/pyscript.py
+
+" Automatic indentation
+filetype indent on
+set autoindent
+
+" Line numbering
+set number
+
+" Tab formatting
+set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set tabstop=4 " the visible width of tabs
+set softtabstop=4 " edit as if the tabs are 4 characters wide
+set shiftwidth=4 " number of spaces to use for indent and unindent
+set shiftround " round indent to a multiple of 'shiftwidth'
+set expandtab
+
+" Backspace works as expected with whitespace
+set backspace=2
+
+" Mouse
+set mouse=a
+
+" Show these characters with :set list
+set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,eol:¬,
+
+" Turn on search highlighting for all results
+set hlsearch
+" Hit <Enter> to remove the highlighting once done
+nnoremap <silent> <CR> :noh<CR>
+
+" Statusline using airline
+set noshowmode
+
+" Use univesal clipboard for copy pasting
+" Requires +clipboard (not sure about +xterm_clipboard)
+set clipboard=unnamedplus
+
+" Highlight column 79 for wrapping code
+set colorcolumn=79
+
+" jk escapes insert mode
+inoremap jk <Esc>
+
+"Become a pro
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+" Windows/Splits
+" Simplify window switching
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Default split on the right for vertical
+set splitbelow
+set splitright
+
