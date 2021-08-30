@@ -15,6 +15,12 @@ set autoindent
 " Line numbering
 set number
 
+" no swap files
+set noswapfile
+
+" Allow hidden buffers
+set hidden
+
 " Tab formatting
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
