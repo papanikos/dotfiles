@@ -1,26 +1,39 @@
 " Enable syntax highlighting
 set syntax=on
-
-" For snakefiles and modules
 au BufNewFile,BufRead *Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.smk set syntax=snakemake
 
-" Default python srcipt skeleton
-autocmd BufNewFile *.py 0r ~/.vim/skeletons/pyscript.py
+call plug#begin('~/.vim/plugged')
 
-" Automatic indentation
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'psf/black', { 'branch' : 'stable' }
+Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
+Plug 'sheerun/vim-polyglot'
+
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'haystackandroid/cosmic_latte'
+Plug 'cocopon/iceberg.vim'
+Plug 'sainnhe/gruvbox-material'
+
+call plug#end()
+
 filetype indent on
 set autoindent
+set smartindent
 
-" Line numbering
-set number
-
-" no swap files
+" No .swp file
 set noswapfile
-
 " Allow hidden buffers
 set hidden
+" Show more lines when scrolling
+set scrolloff=5
 
+" Line numbering
+" Use both for hybrid mode
+set number
+set relativenumber
 " Tab formatting
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
@@ -29,29 +42,48 @@ set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 set expandtab
 
-" Backspace works as expected with whitespace
-set backspace=2
-
-" Mouse
 set mouse=a
 
-" Show these characters with :set list
+" Show characters
 set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,eol:¬,
 
 " Turn on search highlighting for all results
 set hlsearch
-" Hit <Enter> to remove the highlighting once done
 nnoremap <silent> <CR> :noh<CR>
 
 " Statusline using airline
+" Display nice linestatus
+set laststatus=2
+" Show status only from airline
 set noshowmode
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " Use univesal clipboard for copy pasting
-" Requires +clipboard (not sure about +xterm_clipboard)
 set clipboard=unnamedplus
 
 " Highlight column 79 for wrapping code
 set colorcolumn=79
+
+" Enable truecolors when using tmux
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+" Set the colorscheme to gruvbox dark
+set background=dark
+let g:gruvbox_material_background='hard'
+let g:gruvbox_material_palette='mix'
+"let g:gruvbox_material_palette.dark_blue=['#2c78bf', '18']
+let g:gruvbox_material_ui_contrast='high'
+let g:gruvbox_material_disable_italic_comment=1
+colorscheme gruvbox-material
+
+let g:black_linelength=79
+
 
 " jk escapes insert mode
 inoremap jk <Esc>
@@ -62,14 +94,27 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" Windows/Splits
-" Simplify window switching
+" Faster window navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Default split on the right for vertical
+" Default split on the right
 set splitbelow
 set splitright
 
+" Coc Tab completion
+function! s:check_back_space() abort
+      let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~ '\s'
+    endfunction
+
+    inoremap <silent><expr> <Tab>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<Tab>" :
+          \ coc#refresh()
+
+
+" Skeletons
+autocmd BufNewFile *.py 0r ~/.vim/skeletons/pyscript.py
