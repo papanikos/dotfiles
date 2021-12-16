@@ -1,25 +1,19 @@
 " Enable syntax highlighting
-set syntax=on
 au BufNewFile,BufRead *Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.smk set syntax=snakemake
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'psf/black', { 'branch' : 'stable' }
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
-Plug 'sheerun/vim-polyglot'
-
-
-Plug 'gruvbox-community/gruvbox'
-Plug 'haystackandroid/cosmic_latte'
-Plug 'cocopon/iceberg.vim'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
-filetype indent on
 set autoindent
 set smartindent
 
@@ -44,12 +38,15 @@ set expandtab
 
 set mouse=a
 
-" Show characters
+" Show whitespace characters with :set list
 set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮,eol:¬,
 
+" Incremental search
+set incsearch
 " Turn on search highlighting for all results
 set hlsearch
-nnoremap <silent> <CR> :noh<CR>
+" Clear highlighting
+nnoremap <silent> <CR> :noh<CR><CR>
 
 " Statusline using airline
 " Display nice linestatus
@@ -114,7 +111,6 @@ function! s:check_back_space() abort
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<Tab>" :
           \ coc#refresh()
-
 
 " Skeletons
 autocmd BufNewFile *.py 0r ~/.vim/skeletons/pyscript.py
