@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - bioconda
+
+auto_activate_base: false
+pip_interop_enabled: true
+changeps1: false
+
