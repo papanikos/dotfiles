@@ -1,0 +1,35 @@
+add_newline = false
+
+[fill]
+symbol=' '
+style='white'
+
+[username]
+format = "[$user]($style)@"
+show_always = true
+style_user = "bold white"
+
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold bright-white"
+disabled = false
+ssh_only = false
+
+[conda]
+style = "bright-yellow"
+ignore_base = false
+symbol = " "
+
+[cmd_duration]
+disabled=true
+format='\[in $duration\]'
+
+[directory]
+truncate_to_repo = false
+
+[python]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
