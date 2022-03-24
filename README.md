@@ -1,27 +1,35 @@
 # dotfiles
 
-Config files.
+My config files for various programs I use.
 
 _There are many like these but these are mine._
 
-The idea is to use stow. Haven't tried it yet on a new machine.
+Handled with stow.
 
-At least now they are backed up...
+## Packages/Programs
 
-Handle with care.
+- alacritty (terminal)
+- vim (editor)
+- tmux, byobu (terminal multiplexer)
+- vivid (pretty dircolors)
+- starship (custom prompt)
+- conda (package management, in user space and mostly scientific stuff)
+- awesome (tiling window manager - Buggy with GNOME)
+- bash (shell)
 
-## VIM
+## Program specific notes
 
-* Install [vim-plug](https://github.com/junegunn/vim-plug)
+### VIM
+
+1. Install [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-* From a terminal
+2. From a terminal
 
 ```
 $ vim +PlugInstall +qall
 ```
-
