@@ -118,11 +118,12 @@ media:
   foreground: light_pink
 
 office:
-  foreground: red
+  foreground: yellow
+  font-style: bold
 
 archives:
-  foreground: cyan
-  font-style: underline
+  foreground: red
+  font-style: bold
 
 executable:
   foreground: green
