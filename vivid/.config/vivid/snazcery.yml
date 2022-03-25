@@ -1,3 +1,4 @@
+# vivd version 0.8
 colors:
   # Original "snazzy" theme by sindresorhus
   # https://github.com/sindresorhus/hyper-snazzy
@@ -6,8 +7,7 @@ colors:
   red: 'ff5c57'
   green: '5af78e'
   yellow: 'f3f99d'
-  blue: '2c78bf'
-  #Was blue: '57c7ff' - Using from alacritty srcery
+  blue: '2c78bf' # '57c7ff'
   pink: 'ff6ac1'
   cyan: '9aedfe'
 
@@ -26,25 +26,19 @@ colors:
   darkergray: '333333'
 
 core:
+  normal_text: {}
   regular_file: {}
+  reset_to_normal: {}
 
   directory:
     foreground: blue
     font-style: bold
 
-  executable_file:
-    foreground: green
-    font-style: bold
-
   symlink:
     foreground: cyan
+    font-style: bold
 
-  broken_symlink:
-    foreground: black
-    background: red
-  missing_symlink_target:
-    foreground: black
-    background: red
+  multi_hard_link: {}
 
   fifo:
     foreground: black
@@ -54,25 +48,41 @@ core:
     foreground: black
     background: pink
 
-  character_device:
-    foreground: pink
-    background: darkergray
+  door:
+    foreground: black
+    background: pink
 
   block_device:
     foreground: cyan
     background: darkergray
 
-  normal_text:
-    {}
+  character_device:
+    foreground: pink
+    background: darkergray
 
-  other_writable:
-    {}
+  broken_symlink:
+    foreground: black
+    background: red
 
-  sticky:
-    {}
+  missing_symlink_target:
+    foreground: black
+    background: red
 
-  sticky_other_writable:
-    {}
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    foreground: green
+    font-style: bold
 
 text:
   special:
@@ -108,16 +118,15 @@ media:
   foreground: light_pink
 
 office:
-    foreground: yellow
+  foreground: red
 
 archives:
-  foreground: red
+  foreground: cyan
   font-style: underline
 
 executable:
-  foreground: red
+  foreground: green
   font-style: bold
 
 unimportant:
   foreground: darkgray
-
