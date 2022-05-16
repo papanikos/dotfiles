@@ -1,5 +1,7 @@
 # dotfiles
 
+Configuration for EndeavourOS - Qtile edition.
+
 My config files for various programs I use.
 
 _There are many like these but these are mine._
@@ -13,9 +15,8 @@ Handled with stow.
 - tmux, byobu (terminal multiplexer)
 - vivid (pretty dircolors)
 - starship (custom prompt)
-- conda (package management, in user space and mostly scientific stuff)
-- awesome (tiling window manager - Buggy with GNOME)
 - bash (shell)
+- qtile (WM)
 
 ## Program specific notes
 
