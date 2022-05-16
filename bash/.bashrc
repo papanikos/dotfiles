@@ -29,44 +29,30 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikos/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nikos/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikos/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikos/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/home/nikos/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/nikos/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/nikos/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/nikos/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
 
 # Custom software
-export PATH="/home/nikos/bin:$PATH"
+#export PATH="/home/nikos/bin:$PATH"
 
 ## Singularity requirements
-export PATH="$PATH:/usr/local/go/bin"
+#export PATH="$PATH:/usr/local/go/bin"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"
 
 # rustup.rs
-. "$HOME/.cargo/env"
-
-# Alacritty bash completion
-source /home/nikos/Tools/alacritty/extra/completions/alacritty.bash
-# Awesome window manager keyring for ssh
-
-if [ "$DESKTOP_SESSION" == "awesome" ]; then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
+#. "$HOME/.cargo/env"
 
 # FZF through git
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
