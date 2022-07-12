@@ -116,7 +116,7 @@ let g:gruvbox_material_palette='mix'
 colorscheme gruvbox-material
 
 " CoC
-let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_node_path = '/home/nikos/.local/bin/node'
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
       let col = col('.') - 1
