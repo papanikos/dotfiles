@@ -42,25 +42,22 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.CurrentLayoutIcon(scale=0.75),
-                # widget.CheckUpdates(
-                #     update_interval=1800,
-                #     distro="Arch_yay",
-                #     display_format="{updates} Updates",
-                #     foreground="#ffffff",
-                #     mouse_callbacks={
-                #         "Button1": lambda: qtile.cmd_spawn("alacritty -e yay -Syu")
-                #     },
-                #     background="#2f343f",
-                # ),
                 widget.TextBox(
-                    background=colors["color1"],
                     text="",
                     foreground=colors["color2"],
-                    padding=-2,
-                    fontsize=26,
+                    fontsize=24,
+                    padding=-2
+                    ),
+                widget.CurrentLayoutIcon(
+                    foreground=colors['text'],
+                    background=colors['color2'],
+                    scale=0.65
                 ),
-                #volume,
+                widget.CurrentLayout(
+                    padding=5,
+                    foreground=colors['color3'],
+                    background=colors['color2'],
+                ),
                 widget.TextBox(
                     text="",
                     padding=-2,
