@@ -1,6 +1,7 @@
 " Enable syntax highlighting
 set syntax=on
 
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -116,7 +117,7 @@ let g:gruvbox_material_palette='mix'
 colorscheme gruvbox-material
 
 " CoC
-let g:coc_node_path = '/usr/local/bin/node'
+let g:coc_node_path ='/home/nikos/.local/node-v16.15.1-linux-x64/bin/node'
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
       let col = col('.') - 1
