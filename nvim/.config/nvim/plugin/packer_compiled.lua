@@ -69,6 +69,21 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/nikos/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "/home/nikos/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/nikos/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/nikos/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -108,11 +123,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nikos/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/nikos/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
   }
 }
 
