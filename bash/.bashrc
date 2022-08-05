@@ -10,7 +10,7 @@ esac
 
 # Use dircolors -p to get an idea how things should be named
 #export LS_COLORS='or=05;36;41:*.zip=01;31:*.gz=01;31:*.svg=00;35:*.png=00;35:*.jpg=00;35:*.deb=01;37;41:'
-#export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
+export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
 
 HISTCONTROL=ignoreboth
 export HISTIGNORE='cd*:ls*'
