@@ -1,6 +1,9 @@
 -- Custom keymaps
 vim.keymap.set("i", "jk", "<Esc>")
 
+-- Disable highlght search
+vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<cr>", {silent=true})
+
 -- Faster window switch
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
