@@ -8,9 +8,8 @@ case $- in
       *) return;;
 esac
 
-# Use dircolors -p to get an idea how things should be named
-#export LS_COLORS='or=05;36;41:*.zip=01;31:*.gz=01;31:*.svg=00;35:*.png=00;35:*.jpg=00;35:*.deb=01;37;41:'
-export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
+# Custom software
+export PATH="/home/nikos/.local/bin:$PATH"
 
 HISTCONTROL=ignoreboth
 export HISTIGNORE='cd*:ls*'
@@ -46,8 +45,6 @@ if [ -f "/home/nikos/miniconda3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-# Custom software
-export PATH="/home/nikos/bin:${HOME}/.local/node-v16.15.1-linux-x64/bin:$PATH"
 
 ## Singularity requirements
 #export PATH="$PATH:/usr/local/go/bin"
@@ -59,6 +56,10 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
     ssh-add
 fi
+
+# Use dircolors -p to get an idea how things should be named
+#export LS_COLORS='or=05;36;41:*.zip=01;31:*.gz=01;31:*.svg=00;35:*.png=00;35:*.jpg=00;35:*.deb=01;37;41:'
+export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
 
 # rustup.rs
 #. "$HOME/.cargo/env"
