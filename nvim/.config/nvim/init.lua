@@ -4,4 +4,6 @@ require("user.plugins")
 require("user.lualine")
 require("user.telescope")
 require("user.colorscheme")
-
+require("user.lspconfig")
+require("user.nvim-tree")
+require("user.gitsigns")

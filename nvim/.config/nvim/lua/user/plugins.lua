@@ -16,7 +16,12 @@ require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
     use "joshdick/onedark.vim"
     use "EdenEast/nightfox.nvim"
+    use "RRethy/nvim-base16"
     use "nvim-lualine/lualine.nvim"
+    use { "kyazdani42/nvim-tree.lua",
+            requires = { { "kyazdani42/nvim-web-devicons" } }
+        }
+    use "lewis6991/gitsigns.nvim"
     use "tpope/vim-commentary"
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -27,6 +32,9 @@ require("packer").startup(function(use)
         tag = "0.1.0",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
+
+    -- LSP
+    use "neovim/nvim-lspconfig"
 
     -- Snippets
     use "L3MON4D3/LuaSnip"
