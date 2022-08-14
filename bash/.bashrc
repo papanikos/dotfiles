@@ -77,4 +77,4 @@ export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Zoxide
-# eval "$(zoxide init bash)"
+eval "$(zoxide init bash)"
