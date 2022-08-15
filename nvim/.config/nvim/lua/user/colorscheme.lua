@@ -1,2 +1,2 @@
 -- Set colorscheme
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme base16-catppuccin")

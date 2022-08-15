@@ -14,7 +14,7 @@ end
 
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
-    use "joshdick/onedark.vim"
+
     use "EdenEast/nightfox.nvim"
     use "RRethy/nvim-base16"
     use "nvim-lualine/lualine.nvim"
@@ -28,13 +28,23 @@ require("packer").startup(function(use)
         run = ":TSUpdate"
     }
     use {
-        "nvim-telescope/telescope.nvim", 
+        "nvim-telescope/telescope.nvim",
         tag = "0.1.0",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
 
     -- LSP
+    -- Servers config
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
+
+    -- Completion
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
     -- Snippets
     use "L3MON4D3/LuaSnip"
