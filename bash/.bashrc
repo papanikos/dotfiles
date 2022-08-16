@@ -46,9 +46,7 @@ fi
 # <<< conda initialize <<<
 
 
-## Singularity requirements
-#export PATH="$PATH:/usr/local/go/bin"
-
+# Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"
 
@@ -67,11 +65,6 @@ export LS_COLORS="$(vivid generate $HOME/.config/vivid/snazcery.yml)"
 # Alacritty bash completion
 #source /home/nikos/Tools/alacritty/extra/completions/alacritty.bash
 # Awesome window manager keyring for ssh
-
-##if [ "$DESKTOP_SESSION" == "awesome" ]; then
-#    eval $(gnome-keyring-daemon --start)
-#    export SSH_AUTH_SOCK
-#fi
 
 # FZF through git
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
