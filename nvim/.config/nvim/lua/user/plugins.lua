@@ -13,20 +13,37 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function(use)
+    -- Let packer handle packer
     use "wbthomason/packer.nvim"
 
-    use "EdenEast/nightfox.nvim"
-    use "RRethy/nvim-base16"
+    -- A lot of colorschemes
+    --use "RRethy/nvim-base16"
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+    -- Status line
     use "nvim-lualine/lualine.nvim"
+
+    -- Buffers
+    use { 'akinsho/bufferline.nvim', tag = "v2.*" }
+
+    -- File explorer
     use { "kyazdani42/nvim-tree.lua",
             requires = { { "kyazdani42/nvim-web-devicons" } }
         }
+
+    -- Git info
     use "lewis6991/gitsigns.nvim"
-    use "tpope/vim-commentary"
+
+    -- Comment out lines
+    use "numToStr/Comment.nvim"
+
+    -- Highlgihting and more
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
+
+    -- Find stuff
     use {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.0",
@@ -39,7 +56,7 @@ require("packer").startup(function(use)
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
 
-    -- Completion
+    -- Auto-Completion
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
