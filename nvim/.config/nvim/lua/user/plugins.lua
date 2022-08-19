@@ -37,6 +37,9 @@ require("packer").startup(function(use)
     -- Comment out lines
     use "numToStr/Comment.nvim"
 
+    -- Show colors codes live
+    use "ap/vim-css-color"
+
     -- Highlgihting and more
     use {
         "nvim-treesitter/nvim-treesitter",
