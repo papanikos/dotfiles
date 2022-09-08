@@ -116,8 +116,7 @@ office:
   foreground: red
 
 archives:
-  foreground: cyan
-  font-style: underline
+  foreground: light_red
 
 executable:
   foreground: red
