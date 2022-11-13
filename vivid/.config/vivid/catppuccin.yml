@@ -28,6 +28,7 @@ core:
 
   directory:
     foreground: blue
+    font-style: bold
 
   symlink:
     foreground: cyan
