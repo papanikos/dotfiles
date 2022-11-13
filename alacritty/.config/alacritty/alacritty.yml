@@ -55,18 +55,18 @@ colors:
         blue: "#89B4FA" # blue
         magenta: "#CA9EE6" # frappe-mauve
         cyan: "#94E2D5" # teal
-        white: "#BAC2DE" # subtext1
+        white: "#E6E9EF" # frappe-mantle
 
     # Bright colors
     bright:
         black: "#585B70" # surface2
-        red: "#D20f39" # frappe-red
-        green: "#A6E3A1" # green
-        yellow: "#F9E2AF" # yellow
+        red: "#D20F39" # latte-red
+        green: "#A6D189" # frappe-green
+        yellow: "#DF8E1D" # latte-yellow
         blue: "#89B4FA" # blue
         magenta: "#8839ef" # pink
         cyan: "#179299" # frappe-teal
-        white: "#A6ADC8" # subtext0
+        white: "#EFF1F5" # frappe-base
 
     # Dim colors
     dim:
