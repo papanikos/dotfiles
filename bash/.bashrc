@@ -51,9 +51,13 @@ eval "$(starship init bash)"
 # rustup.rs
 . "$HOME/.cargo/env"
 
-# Alacritty bash completion
-source /home/nikos/Tools/alacritty/extra/completions/alacritty.bash
-# Awesome window manager keyring for ssh
+
+source ~/.bash_completion/alacritty
+
+# Node - mostly for luavim
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Zoxide
 #eval "$(zoxide init bash)"
