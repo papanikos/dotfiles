@@ -11,8 +11,17 @@ esac
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
 
+# rustup.rs
+. "$HOME/.cargo/env"
+export PATH="$PATH:$HOME/.cargo/bin"
+
 HISTCONTROL=ignoreboth
 export HISTIGNORE='cd*:ls*'
+
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -45,29 +54,32 @@ if [ -f "/home/nikos/miniconda3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"
-
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent -s`
-    ssh-add
-fi
 
 # Use dircolors -p to get an idea how things should be named
 #export LS_COLORS='or=05;36;41:*.zip=01;31:*.gz=01;31:*.svg=00;35:*.png=00;35:*.jpg=00;35:*.deb=01;37;41:'
 export LS_COLORS="$(vivid generate $HOME/.config/vivid/catppuccin.yml)"
 
-# rustup.rs
-#. "$HOME/.cargo/env"
-
-# Alacritty bash completion
-#source /home/nikos/Tools/alacritty/extra/completions/alacritty.bash
-# Awesome window manager keyring for ssh
-
-# FZF through git
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Zoxide
 eval "$(zoxide init bash)"
+
+
+# Custom functions
+removecontainers() {
+    docker stop $(docker ps -aq)
+    docker rm $(docker ps -aq)
+}
+
+armageddon() {
+    removecontainers
+    docker network prune -f
+    docker rmi -f $(docker images --filter dangling=true -qa)
+    docker volume rm $(docker volume ls --filter dangling=true -q)
+    docker rmi -f $(docker images -qa)
+}
+
+#Load some secrets
+source ~/.secrets.sh
+
