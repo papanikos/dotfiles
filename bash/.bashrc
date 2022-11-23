@@ -8,6 +8,10 @@ case $- in
       *) return;;
 esac
 
+# Ssh keys in keychain
+keychain id_ed25519
+. $HOME/.keychain/`uname -n`-sh
+
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
 
