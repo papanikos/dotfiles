@@ -1,5 +1,8 @@
 add_newline = false
 
+[character]
+error_symbol = "[](bold red)"
+
 [fill]
 symbol=' '
 style='white'
