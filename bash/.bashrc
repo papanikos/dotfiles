@@ -123,11 +123,5 @@ export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 eval "$(starship init bash)"
 
 #Vivid
-export LS_COLORS=$(vivid generate ${HOME}/.config/vivid/snazcery.yml)
-
-# ssh-agent
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent -s`
-    ssh-add
-fi
+export LS_COLORS=$(vivid generate ${HOME}/.config/vivid/catppuccin.yml)
 
