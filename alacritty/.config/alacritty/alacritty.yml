@@ -6,7 +6,7 @@ font:
 
 colors:
     primary:
-        background: "#1E1E2E" # base
+        background: "#181825" # mocha-mantle
         foreground: "#E6E9EF" # latte-mantle
         # Bright and dim foreground colors
         dim_foreground: "#DCE0E8" # latte-crust
