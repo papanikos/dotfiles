@@ -4,3 +4,7 @@ alias rsync="rsync -av --progress"
 alias update="sudo nala update && sudo nala upgrade"
 alias pi="ssh nikos@papanikos.me"
 alias vim="lvim"
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"

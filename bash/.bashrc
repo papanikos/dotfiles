@@ -46,7 +46,7 @@ keychain id_ed25519
 # <<< conda initialize <<<
 
 # Custom software
-export PATH="/home/nikos/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"
