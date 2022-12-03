@@ -1,29 +1,37 @@
+format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)$hostname$directory$git_branch$all"
 add_newline = false
 
+[character]
+error_symbol = "[](bold red)"
+
 [fill]
-symbol=" "
-style="bold white"
+symbol=''
+style='white'
 
 [username]
-format = "[$user@]($style)"
+format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)[ $user ]($style)"
+disabled = true
 show_always = true
-style_user = "bold green"
+style_user = "bg:#a6adc8 fg:bold bright-black"
 
 [hostname]
-format = "[$hostname]($style) in "
-style = "bold green"
+format = "[ $hostname ](bg:#a6adc8 fg:bold bright-black)[\uE0B0](bg:#1e1e2e fg:#a6adc8)"
 disabled = false
 ssh_only = false
 
 [conda]
 style = "yellow"
 ignore_base = false
-symbol = " "
+symbol = "﫥"
 
 [cmd_duration]
-disabled=true
+format = "[祥 $duration]($style)"
+min_time = 3_000
+style="green"
+
 
 [directory]
+format="[ ](yellow) [$path ]($style)"
 style="bold bright-cyan"
 truncate_to_repo = true
 
@@ -31,6 +39,7 @@ truncate_to_repo = true
 symbol = " "
 
 [git_branch]
-symbol = " "
+format="[$symbol $branch]($style) "
+symbol = ""
 style="bold purple"
 
