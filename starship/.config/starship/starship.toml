@@ -1,4 +1,4 @@
-format = "$username$hostname$directory$git_branch$all"
+format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)$hostname$directory$git_branch$all"
 add_newline = false
 
 [character]
@@ -10,6 +10,7 @@ style='white'
 
 [username]
 format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)[ $user ]($style)"
+disabled = true
 show_always = true
 style_user = "bg:#a6adc8 fg:bold bright-black"
 
