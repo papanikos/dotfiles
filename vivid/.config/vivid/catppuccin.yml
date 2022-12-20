@@ -83,6 +83,7 @@ text:
   special:
     foreground: background_color
     background: yellow
+    font-style: bold
 
   todo:
     font-style: bold
