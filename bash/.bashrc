@@ -125,3 +125,9 @@ eval "$(starship init bash)"
 #Vivid
 export LS_COLORS=$(vivid generate ${HOME}/.config/vivid/catppuccin.yml)
 
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+CC=/home/nikos/miniconda3/bin/gcc
