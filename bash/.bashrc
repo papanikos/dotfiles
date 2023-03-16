@@ -8,12 +8,12 @@ case $- in
       *) return;;
 esac
 
+# Custom software
+export PATH="/home/nikos/.local/bin:$PATH"
+
 # SSH keys in keychain
 keychain id_ed25519
 . $HOME/.keychain/`uname -n`-sh
-
-# Custom software
-export PATH="/home/nikos/.local/bin:$PATH"
 
 # rustup.rs
 . "$HOME/.cargo/env"
@@ -85,5 +85,7 @@ armageddon() {
 }
 
 #Load some secrets
-source ~/.secrets.sh
+if [ -f "/home/nikos/.secrects.sh" ]; then
+  source ~/.secrets.sh
+fi
 
