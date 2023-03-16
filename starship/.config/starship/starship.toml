@@ -20,12 +20,12 @@ disabled = false
 ssh_only = false
 
 [conda]
+format = "[$symbol$environment ]($style)"
 style = "yellow"
 ignore_base = false
-symbol = "﫥"
 
 [cmd_duration]
-format = "[祥 $duration]($style)"
+format = "[祥 $duration ]($style)"
 min_time = 3_000
 style="green"
 
