@@ -4,6 +4,9 @@ font:
     style: Regular
   size: 12.0
 
+env:
+  TERM: xterm-256color
+
 colors:
     primary:
         background: "#181825" # mocha-mantle
