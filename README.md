@@ -10,11 +10,11 @@ Handled with stow.
 
 - alacritty (terminal)
 - vim (editor)
+  - Currently Lunarvim
 - tmux, byobu (terminal multiplexer)
 - vivid (pretty dircolors)
 - starship (custom prompt)
 - conda (package management, in user space and mostly scientific stuff)
-- awesome (tiling window manager - Buggy with GNOME)
 - bash (shell)
 
 ## Program specific notes
