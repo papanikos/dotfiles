@@ -4,16 +4,16 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
 
 # SSH keys in keychain
-keychain id_ed25519
-. $HOME/.keychain/`uname -n`-sh
+keychain --quiet id_ed25519
+. $HOME/.keychain/$(uname -n)-sh
 
 # rustup.rs
 . "$HOME/.cargo/env"
@@ -26,9 +26,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Node
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -36,25 +35,25 @@ shopt -s checkwinsize
 
 # Aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikos/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/nikos/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+	eval "$__conda_setup"
 else
-    if [ -f "/home/nikos/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikos/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikos/miniconda3/bin:$PATH"
-    fi
+	if [ -f "/home/nikos/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/nikos/miniconda3/etc/profile.d/conda.sh"
+	else
+		export PATH="/home/nikos/miniconda3/bin:$PATH"
+	fi
 fi
 unset __conda_setup
 
 if [ -f "/home/nikos/miniconda3/etc/profile.d/mamba.sh" ]; then
-    . "/home/nikos/miniconda3/etc/profile.d/mamba.sh"
+	. "/home/nikos/miniconda3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
@@ -69,23 +68,27 @@ export LS_COLORS="$(vivid generate $HOME/.config/vivid/catppuccin.yml)"
 # Zoxide
 eval "$(zoxide init bash)"
 
-
 # Custom functions
 removecontainers() {
-    docker stop $(docker ps -aq)
-    docker rm $(docker ps -aq)
+	docker stop $(docker ps -aq)
+	docker rm $(docker ps -aq)
 }
 
 armageddon() {
-    removecontainers
-    docker network prune -f
-    docker rmi -f $(docker images --filter dangling=true -qa)
-    docker volume rm $(docker volume ls --filter dangling=true -q)
-    docker rmi -f $(docker images -qa)
+	removecontainers
+	docker network prune -f
+	docker rmi -f $(docker images --filter dangling=true -qa)
+	docker volume rm $(docker volume ls --filter dangling=true -q)
+	docker rmi -f $(docker images -qa)
 }
 
 #Load some secrets
 if [ -f "/home/nikos/.secrects.sh" ]; then
-  source ~/.secrets.sh
+	source ~/.secrets.sh
 fi
 
+tlapp() {
+	pushd /c/projects/TLApp
+	docker compose -f docker-compose-dev.yml --env-file conf/.env "$@"
+	popd +0
+}
