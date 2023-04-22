@@ -166,7 +166,7 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.plugins = {
   {
     "catppuccin/nvim",
-    as = "catppuccin",
+    name = "catppuccin",
     config = function ()
     require("catppuccin").setup({
       flavour = "mocha",
