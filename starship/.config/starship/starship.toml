@@ -32,7 +32,7 @@ style="green"
 
 [directory]
 format="[ ](yellow) [$path ]($style)"
-style="bold bright-cyan"
+style="bold blue"
 truncate_to_repo = true
 
 [python]
