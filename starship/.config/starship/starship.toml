@@ -15,7 +15,7 @@ show_always = true
 style_user = "bg:#a6adc8 fg:bold bright-black"
 
 [hostname]
-format = "[ $hostname ](bg:#a6adc8 fg:bold bright-black)[\uE0B0](bg:#1e1e2e fg:#a6adc8)"
+format = "[ $hostname ](bg:#a6adc8 fg:bold #11111b)[\uE0B0](bg:#1e1e2e fg:#a6adc8)"
 disabled = false
 ssh_only = false
 
