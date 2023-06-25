@@ -21,7 +21,8 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.insert_mode["jk"] = "<Esc>"
-lvim.lsp.diagnostics.virtual_text = false
+
+vim.diagnostic.config({ virtual_text = false })
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -47,7 +48,6 @@ lvim.lsp.diagnostics.virtual_text = false
 --     ["<C-k>"] = actions.move_selection_previous,
 --   },
 -- }
-
 -- Change theme settings
 -- lvim.builtin.theme.options.dim_inactive = true
 -- lvim.builtin.theme.options.style = "storm"
