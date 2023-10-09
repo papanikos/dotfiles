@@ -10,6 +10,7 @@ esac
 
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
+export EDITOR="hx"
 
 # SSH keys in keychain
 keychain --quiet id_ed25519
@@ -83,7 +84,7 @@ armageddon() {
 }
 
 #Load some secrets
-if [ -f "/home/nikos/.secrects.sh" ]; then
+if [ -f "/home/nikos/.secrets.sh" ]; then
 	source ~/.secrets.sh
 fi
 
