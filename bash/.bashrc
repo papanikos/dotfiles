@@ -89,7 +89,7 @@ if [ -f "/home/nikos/.secrets.sh" ]; then
 fi
 
 tlapp() {
-	pushd /c/projects/TLApp
-	docker compose -f docker-compose-dev.yml --env-file conf/.env "$@"
+	pushd ${HOME}/projects/TLApp
+	docker compose -f docker-compose-dev.yml "$@"
 	popd +0
 }
