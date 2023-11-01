@@ -1,13 +1,6 @@
-[[language]]
-name = "python"
-scope = "source.python"
-injection-regex = "python"
-file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
-shebangs = ["python"]
-language-server = { command = "pyright-langserver", args = ["--stdio"]}
-roots = ["setup.py", "setup.cfg", "pyproject.toml"]
-comment-token = "#"
-indent = { tab-width = 4, unit = "    " }
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
 # will get "Async jobs timed out" errors if this empty config is not added
 config = {}
 
@@ -17,3 +10,15 @@ validation = true
 
 [language-server.yaml-language-server.config.yaml.schemas]
 "https://raw.githubusercontent.com/docker/cli/master/cli/compose/schema/data/config_schema_v3.9.json" = "docker-compose*.{yml,yaml}"
+
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+roots = ["setup.py", "setup.cfg", "pyproject.toml"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ {name = "pyright"} ]
+
