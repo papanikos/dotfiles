@@ -39,24 +39,6 @@ if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikos/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-	eval "$__conda_setup"
-else
-	if [ -f "/home/nikos/miniconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/nikos/miniconda3/etc/profile.d/conda.sh"
-	else
-		export PATH="/home/nikos/miniconda3/bin:$PATH"
-	fi
-fi
-unset __conda_setup
-
-if [ -f "/home/nikos/miniconda3/etc/profile.d/mamba.sh" ]; then
-	. "/home/nikos/miniconda3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
@@ -93,3 +75,23 @@ tlapp() {
 	docker compose -f docker-compose-dev.yml "$@"
 	popd +0
 }
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/nikos/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/nikos/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/nikos/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/nikos/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/nikos/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/nikos/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
