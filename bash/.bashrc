@@ -44,10 +44,6 @@ fi
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init bash)"
 
-# Use dircolors -p to get an idea how things should be named
-#export LS_COLORS='or=05;36;41:*.zip=01;31:*.gz=01;31:*.svg=00;35:*.png=00;35:*.jpg=00;35:*.deb=01;37;41:'
-export LS_COLORS="$(vivid generate $HOME/.config/vivid/catppuccin.yml)"
-
 # Zoxide
 eval "$(zoxide init bash)"
 
@@ -70,10 +66,8 @@ if [ -f "/home/nikos/.secrets.sh" ]; then
 	source ~/.secrets.sh
 fi
 
-tlapp() {
-	pushd ${HOME}/projects/TLApp
-	docker compose -f docker-compose-dev.yml "$@"
-	popd +0
+it-workers() {
+	docker exec -it tlapp_workers bash
 }
 
 # >>> conda initialize >>>
