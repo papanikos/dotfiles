@@ -1,8 +1,6 @@
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-# will get "Async jobs timed out" errors if this empty config is not added
-config = {}
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = [ "fmt", "-" ] }
 
 [language-server.yaml-language-server.config.yaml]
 format = { enable = true }
@@ -20,5 +18,13 @@ shebangs = ["python"]
 roots = ["setup.py", "setup.cfg", "pyproject.toml"]
 comment-token = "#"
 indent = { tab-width = 4, unit = "    " }
-language-servers = [ {name = "pyright"} ]
+language-servers = [ "pyright", "ruff" ]
 
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+# will get "Async jobs timed out" errors if this empty config is not added
+config = {}
+
+[language-server.ruff]
+command = "ruff-lsp"
