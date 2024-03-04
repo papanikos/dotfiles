@@ -10,7 +10,7 @@ esac
 
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
-export EDITOR="hx"
+export EDITOR="nvim"
 
 # SSH keys in keychain
 keychain --quiet id_ed25519
