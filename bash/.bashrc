@@ -36,9 +36,8 @@ shopt -s checkwinsize
 
 # Aliases
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+    . ~/.bash_aliases
 fi
-
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
@@ -49,25 +48,25 @@ eval "$(zoxide init bash)"
 
 # Custom functions
 removecontainers() {
-	docker stop $(docker ps -aq)
-	docker rm $(docker ps -aq)
+    docker stop $(docker ps -aq)
+    docker rm $(docker ps -aq)
 }
 
 armageddon() {
-	removecontainers
-	docker network prune -f
-	docker rmi -f $(docker images --filter dangling=true -qa)
-	docker volume rm $(docker volume ls --filter dangling=true -q)
-	docker rmi -f $(docker images -qa)
+    removecontainers
+    docker network prune -f
+    docker rmi -f $(docker images --filter dangling=true -qa)
+    docker volume rm $(docker volume ls --filter dangling=true -q)
+    docker rmi -f $(docker images -qa)
 }
 
 #Load some secrets
 if [ -f "/home/nikos/.secrets.sh" ]; then
-	source ~/.secrets.sh
+    source ~/.secrets.sh
 fi
 
 it-workers() {
-	docker exec -it tlapp_workers bash
+    docker exec -it tlapp_workers bash
 }
 
 # >>> conda initialize >>>
@@ -89,3 +88,8 @@ if [ -f "/home/nikos/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+# Deduplicate PATH
+PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+
+export MANPAGER="nvim +Man!"
+export MANWIDTH=999

@@ -74,6 +74,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- jk escapes in Insert Mode
 vim.keymap.set('i', 'jk', '<Esc>')
 
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { silent = true, desc = 'Next buffer' })
+vim.keymap.set('n', '<leader>bp', ':bprev<CR>', { silent = true, desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>bd', ':bdel<CR>', { silent = true, desc = 'Delete buffer' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -87,12 +91,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -194,6 +192,7 @@ require('lazy').setup {
 
       -- Document existing key chains
       require('which-key').register {
+        ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
@@ -534,7 +533,7 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'ruff_format' },
+        -- python = { 'ruff_format' },
 
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -678,11 +677,25 @@ require('lazy').setup {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      sections = {
+        lualine_c = { { 'filename', path = 2 } },
+      },
+    },
+  },
+  {
+    'akinsho/bufferline.nvim',
     config = function()
-      require('lualine').setup {}
+      local bufferline = require 'bufferline'
+      require('bufferline').setup {
+        options = {
+          numbers = 'buffer_id',
+          style_preset = bufferline.style_preset.no_italic,
+          separator_style = 'slant',
+        },
+      }
     end,
   },
-
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
