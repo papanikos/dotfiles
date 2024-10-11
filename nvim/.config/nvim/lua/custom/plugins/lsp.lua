@@ -137,7 +137,8 @@ return { -- LSP Configuration & Plugins
       -- Want jedi for better pytest fixture discovery
       jedi_language_server = {},
       ruff = {},
-      groovyls = {},
+      bashls = {},
+      -- groovyls = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
