@@ -51,8 +51,10 @@ return {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   sorting_strategy = 'ascending',
+      defaults = {
+        file_ignore_patterns = { '.git/*', '.git/', 'node_modules/*', '.idea/*', '.ruff_cache/*' },
+        -- sorting_strategy = 'ascending',
+      },
       -- },
       -- },
       -- pickers = {}
