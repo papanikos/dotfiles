@@ -10,7 +10,7 @@ esac
 
 # Custom software
 export PATH="/home/nikos/.local/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PATH="/home/nikos/.pixi/bin:$PATH"
 export EDITOR="nvim"
 
 # SSH keys in keychain

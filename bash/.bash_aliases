@@ -1,5 +1,5 @@
 alias ls="ls --color=auto"
-alias ll="lsd -al --group-dirs first"
+alias ll="eza -al --group-directories-first --icons=always"
 alias rsync="rsync -av --progress"
 alias update="sudo apt update && sudo apt upgrade"
 alias gs="git status"
