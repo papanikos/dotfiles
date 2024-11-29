@@ -78,25 +78,6 @@ header() {
     head -n1 $1 | tr $sep '\n' | cat -n
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikos/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nikos/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikos/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikos/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/nikos/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/nikos/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
 export MANPAGER="nvim +Man!"
 export MANWIDTH=999
 
@@ -115,3 +96,16 @@ PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; pr
 
 [[ $PS1 && -f /usr/share/bash-completion ]] && . /usr/share/bash-completion/bash_completion
 
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/nikos/.pixi/envs/micromamba/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/nikos/.local/share/mamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
