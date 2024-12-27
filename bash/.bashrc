@@ -17,19 +17,9 @@ export EDITOR="nvim"
 keychain --quiet id_ed25519
 . $HOME/.keychain/$(uname -n)-sh
 
-# rustup.rs
-. "$HOME/.cargo/env"
-export PATH="$PATH:$HOME/.cargo/bin"
-
 HISTCONTROL=ignoreboth
-export HISTIGNORE='cd*:ls*'
 # Share history across shells
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-# Node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
