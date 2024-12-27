@@ -1,3 +1,4 @@
+change-ps1 = false
 default-channels = ["conda-forge", "bioconda"]
 authentication-override-file = "/home/nikos/rattler_auth.json"
 
