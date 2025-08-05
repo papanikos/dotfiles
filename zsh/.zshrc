@@ -12,11 +12,13 @@ compinit
 
 export PATH="/home/nikos/.local/bin:$PATH"
 export PATH="/home/nikos/.pixi/bin:$PATH"
-export PATH="/home/nikos/go/bin:$PATH"
+# export PATH="/home/nikos/go/bin:$PATH"
 
 export EDITOR="nvim"
 
 autoload -Uz compinit
+
+bindkey -v
 
 # starship
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
@@ -36,6 +38,8 @@ eval "$(zoxide init zsh)"
 
 # atuin
 eval "$(atuin init --disable-up-arrow zsh)"
+
+export BAT_THEME="Catppuccin Mocha"
 
 # aliases
 alias ls="ls --color=auto"
@@ -60,6 +64,8 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 #
 
+alias mm="micromamba"
+
 function sesh-sessions() {
   {
     exec </dev/tty
@@ -76,3 +82,5 @@ zle     -N             sesh-sessions
 bindkey -M emacs '\es' sesh-sessions
 bindkey -M vicmd '\es' sesh-sessions
 bindkey -M viins '\es' sesh-sessions
+
+eval "$(pixi completion --shell zsh)"
