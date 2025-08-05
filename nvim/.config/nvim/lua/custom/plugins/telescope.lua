@@ -2,7 +2,7 @@
 return {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
+  branch = 'master',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for install instructions
@@ -52,7 +52,7 @@ return {
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = {
-        file_ignore_patterns = { '.git/*', '.git/', 'node_modules/*', '.idea/*', '.ruff_cache/*' },
+        file_ignore_patterns = { '.git/*', '.git/', 'node_modules/*', '.idea/*', '.ruff_cache/*', '.pixi/*' },
         -- sorting_strategy = 'ascending',
       },
       -- },

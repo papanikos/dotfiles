@@ -2,8 +2,8 @@ return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for neovim
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason.nvim',
+    'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'saghen/blink.cmp',
     -- Useful status updates for LSP.
@@ -132,6 +132,7 @@ return { -- LSP Configuration & Plugins
     local servers = {
       pyright = { capabilities = capabilities },
       bashls = {},
+      taplo = { capabilities = capabilities },
       -- groovyls = {},
       lua_ls = {
         -- cmd = {...},
@@ -140,6 +141,7 @@ return { -- LSP Configuration & Plugins
         settings = {
           Lua = {
             runtime = { version = 'LuaJIT' },
+            diagnostics = { globals = { 'vim' } },
             workspace = {
               checkThirdParty = false,
               -- Tells lua_ls where to find all the Lua files that you have loaded
@@ -172,12 +174,11 @@ return { -- LSP Configuration & Plugins
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format lua code
-    })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    require('mason-tool-installer').setup { ensure_installed = vim.list_extend(ensure_installed, { 'stylua' }) }
 
     require('mason-lspconfig').setup {
+      ensure_installed = servers,
+      automatic_enable = true,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -189,5 +190,8 @@ return { -- LSP Configuration & Plugins
         end,
       },
     }
+    for k, v in pairs(servers) do
+      vim.lsp.config(k, v)
+    end
   end,
 }
