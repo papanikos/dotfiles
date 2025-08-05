@@ -1,6 +1,8 @@
-change-ps1 = false
 default-channels = ["conda-forge", "bioconda"]
 authentication-override-file = "/home/nikos/rattler_auth.json"
+
+[shell]
+change-ps1 = false
 
 [mirrors]
 # redirect all requests for conda-forge to the prefix.dev mirror
