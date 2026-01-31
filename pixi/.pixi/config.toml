@@ -4,11 +4,11 @@ authentication-override-file = "/home/nikos/rattler_auth.json"
 [shell]
 change-ps1 = false
 
-[mirrors]
-# redirect all requests for conda-forge to the prefix.dev mirror
-"https://conda.anaconda.org" = [
-    "https://prefix.dev/"
-]
+#[mirrors]
+## redirect all requests for conda-forge to the prefix.dev mirror
+#"https://conda.anaconda.org" = [
+#    "https://prefix.dev/"
+#]
 
 [repodata-config."https://prefix.dev"]
 disable-sharded = false

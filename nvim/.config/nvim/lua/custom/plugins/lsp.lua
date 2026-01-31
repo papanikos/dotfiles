@@ -130,8 +130,9 @@ return { -- LSP Configuration & Plugins
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      pyright = { capabilities = capabilities },
-      bashls = {},
+      -- pyright = { capabilities = capabilities },
+      -- bashls = {},
+      shfmt = { capabilities = capabilities },
       taplo = { capabilities = capabilities },
       -- groovyls = {},
       lua_ls = {
@@ -161,6 +162,23 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pyflakes = { enabled = false },
+              pycodestyle = { enabled = false },
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              mccabe = { enabled = false },
+              pylsp_mypy = { enabled = false },
+              pylsp_black = { enabled = false },
+              pylsp_isort = { enabled = false },
+            },
+          },
+        },
+      },
+      ruff = {},
     }
 
     -- Ensure the servers and tools above are installed

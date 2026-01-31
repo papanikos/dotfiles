@@ -1,4 +1,4 @@
-format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)$hostname$directory$git_branch$all"
+format = "[\uE0B6](bg:#1E1E2E fg:#a6adc8)$hostname$shell$directory$git_branch$all"
 add_newline = false
 command_timeout = 1000
 continuation_prompt = '▶▶ '
@@ -45,3 +45,14 @@ format="[$symbol $branch]($style) "
 symbol = ""
 style="bold purple"
 
+[env_var.WSL_DISTRO_NAME]
+variable = 'WSL_DISTRO_NAME'
+format = "on [$env_value ]($style)"
+style = 'yellow'
+
+[shell]
+disabled = false
+bash_indicator = "\uebca"
+zsh_indicator = "\uf32f"
+format="[ $indicator ]($style)"
+style = " bold red"
